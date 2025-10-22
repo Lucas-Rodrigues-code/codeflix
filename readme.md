@@ -46,6 +46,24 @@ O sistema foi projetado para **escalar horizontalmente**, aproveitando recursos 
 - O aumento de escala se dá pelo **número de PODs** no Kubernetes.  
 - O processo de autoscaling é gerenciado pelo recurso **HPA (Horizontal Pod Autoscaler)**, que ajusta automaticamente a quantidade de instâncias conforme a carga.
 
+### 🔹 Service Discovery
+
+- Não há necessidade de trabalhar com um sistema de Service Discovery como "Consul".
+- O projeto utiliza o **Kubernetes** para orquestrar os containers, sendo o Service Discovery parte nativa do processo.
+
+### 🔹 Consistência Eventual
+
+- Grande parte da comunicação entre os microserviços será **assíncrona**.
+- Cada microserviço possui sua própria base de dados.
+- Eventualmente os dados poderão ficar inconsistentes, desde que não haja prejuízo direto ao negócio.
+
+### 🔹 Duplicação de Dados
+
+- Eventualmente um microserviço poderá persistir dados já existentes em outro microserviço em seu banco de dados.
+- Essa duplicação ocorre para deixar o microserviço mais autônomo.
+- O microserviço duplicará apenas os dados necessários para seu contexto.
+- No caso da Codeflix, utilizaremos o **Kafka Connect** como replicador de dados.
+
 ---
 
 
