@@ -64,6 +64,35 @@ O sistema foi projetado para **escalar horizontalmente**, aproveitando recursos 
 - O microserviço duplicará apenas os dados necessários para seu contexto.
 - No caso da Codeflix, utilizaremos o **Kafka Connect** como replicador de dados.
 
+## 🔐 Autenticação
+
+O sistema utiliza uma arquitetura moderna e segura para autenticação:
+
+- Serviço centralizado de identidade opensource: **Keycloak**
+- Integração com **OpenID Connect**
+- Customização do tema
+  - Utilização do create-react-app
+- Compartilhamento de chave pública com os serviços para verificação de autenticidade dos tokens
+- Diversos tipos de ACL (Access Control List)
+- Flow de autenticação para frontend e backend
+
+## 🔄 Microserviços
+
+A plataforma é composta pelos seguintes microserviços:
+
+- **Backend Admin do Catálogo de Vídeos**
+- **Frontend Admin do Catálogo de Vídeos**
+- **Encoder e Video**
+- **Backend API do Catálogo**
+- **Frontend do Catálogo**
+- **Assinatura do Codeflix pelo cliente**
+
+### Integrações entre Microserviços
+
+- Autenticação entre Microserviços com **Keycloak**
+- Comunicação assíncrona entre os Microserviços com **RabbitMQ**
+- Replicação de dados utilizando **Apache Kafka** e **Kafka Connect**
+
 ---
 
 
