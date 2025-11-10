@@ -5,19 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { CourseCard } from "./course-card";
-
-interface Course {
-  id: number;
-  title: string;
-  thumbnail: string;
-  duration: string;
-  level: string;
-}
-
-interface CourseRowProps {
-  title: string;
-  courses: Course[];
-}
+import { CourseRowProps } from "../types";
 
 export function CourseRow({ title, courses }: CourseRowProps) {
   const [showLeftArrow, setShowLeftArrow] = useState(false);

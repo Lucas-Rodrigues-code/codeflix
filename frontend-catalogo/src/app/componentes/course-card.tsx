@@ -5,14 +5,8 @@ import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Course } from "../types";
 
-interface Course {
-  id: number;
-  title: string;
-  thumbnail: string;
-  duration: string;
-  level: string;
-}
 export function CourseCard({ course }: { course: Course }) {
   const [isHovered, setIsHovered] = useState(false);
 
